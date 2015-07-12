@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileFilter;
 /**
  *
- * This "Main" method is what runs and makes initial method calls. This begins
+ * This "Main" class is ran, which makes the initial method calls. This begins
  * the software and allows for calling the "main" functionality of the program.
  *
  * @author Daniel Speiser

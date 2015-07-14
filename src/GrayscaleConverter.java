@@ -1,8 +1,5 @@
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-
 /**
  * This "GrayscaleConverter" class will be called after a set of images is read in.
  * There are several differnt methods that take an image and convert it to grayscale.
@@ -11,7 +8,7 @@ import java.io.File;
  * OCR Project: License Plate Reader
  *
  */
-public class GrayscaleConverter {
+public class GrayscaleConverter extends BaseMethods {
     /**
      * This "toGray" method uses built in methods to convert an image to proper 8-bit gray scale.
      * @param original - input image
@@ -124,7 +121,7 @@ public class GrayscaleConverter {
                 red = c.getRed();
                 green = c.getGreen();
                 blue = c.getBlue();
-                gray = (BaseMethods.max(red, green, blue) + BaseMethods.min(red, green, blue) ) / 2;
+                gray = (max(red, green, blue) + min(red, green, blue) ) / 2;
                 //Desaturation method
                 Color grayColor = new Color(gray, gray, gray);
                 grayImage.setRGB(i, j, grayColor.getRGB());
@@ -159,7 +156,7 @@ public class GrayscaleConverter {
                 red = c.getRed();
                 green = c.getGreen();
                 blue = c.getBlue();
-                gray = BaseMethods.max(red, green, blue);
+                gray = max(red, green, blue);
                 //MAX Decomposition Method
                 Color grayColor = new Color(gray, gray, gray);
                 grayImage.setRGB(i, j, grayColor.getRGB());
@@ -194,7 +191,7 @@ public class GrayscaleConverter {
                 red = c.getRed();
                 green = c.getGreen();
                 blue = c.getBlue();
-                gray = BaseMethods.min(red, green, blue);
+                gray = min(red, green, blue);
                 //MIN Decomposition Method
                 Color grayColor = new Color(gray, gray, gray);
                 grayImage.setRGB(i, j, grayColor.getRGB());

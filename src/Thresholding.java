@@ -8,8 +8,6 @@ import java.util.Arrays;
  * This class contains several thresholding methods, including Maximum Entropy, Gaussian Mixture Models,
  * and Mean methods, along with necessary statistical and mathematical methods regarding to thresholding.
  *
- * This class was also responsible for the results for EXAM 2 (Hardcoded methods)
- *
  * @author Daniel Speiser
  * OCR Project: License Plate Reader
  *

@@ -11,7 +11,7 @@ import java.util.Arrays;
  * This class was also responsible for the results for EXAM 2 (Hardcoded methods)
  *
  * @author Daniel Speiser
- * CS 381, OCR Project: License Plate Reader
+ * OCR Project: License Plate Reader
  *
  */
 public class Thresholding extends BaseMethods {

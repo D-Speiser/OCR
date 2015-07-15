@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f2a4067-530f-445b-8c2b-1031eaf74c69" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Thresholding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GrayscaleConverter.java" afterPath="$PROJECT_DIR$/src/GrayscaleConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Thresholding.java" afterPath="$PROJECT_DIR$/src/Thresholding.java" />
     </list>
     <ignored path="OCR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,21 +50,21 @@
       <file leaf-file-name="Thresholding.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Thresholding.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4084507">
-              <caret line="897" column="29" selection-start-line="897" selection-start-column="29" selection-end-line="897" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.5070422">
+              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
               <folding>
-                <element signature="e#6204#6205#0" expanded="true" />
-                <element signature="e#6258#6259#0" expanded="true" />
-                <element signature="e#6466#6467#0" expanded="true" />
-                <element signature="e#6518#6519#0" expanded="true" />
-                <element signature="e#8535#8536#0" expanded="true" />
-                <element signature="e#8594#8595#0" expanded="true" />
-                <element signature="e#10431#10432#0" expanded="true" />
-                <element signature="e#10480#10481#0" expanded="true" />
-                <element signature="e#17896#17897#0" expanded="true" />
-                <element signature="e#17942#17943#0" expanded="true" />
-                <element signature="e#19289#19290#0" expanded="true" />
-                <element signature="e#19335#19336#0" expanded="true" />
+                <element signature="e#6196#6197#0" expanded="true" />
+                <element signature="e#6250#6251#0" expanded="true" />
+                <element signature="e#6458#6459#0" expanded="true" />
+                <element signature="e#6510#6511#0" expanded="true" />
+                <element signature="e#8527#8528#0" expanded="true" />
+                <element signature="e#8586#8587#0" expanded="true" />
+                <element signature="e#10423#10424#0" expanded="true" />
+                <element signature="e#10472#10473#0" expanded="true" />
+                <element signature="e#17888#17889#0" expanded="true" />
+                <element signature="e#17934#17935#0" expanded="true" />
+                <element signature="e#19281#19282#0" expanded="true" />
+                <element signature="e#19327#19328#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -520,7 +519,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3270000" />
+    <option name="totallyTimeSpent" value="3397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -601,21 +600,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Thresholding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4084507">
-          <caret line="897" column="29" selection-start-line="897" selection-start-column="29" selection-end-line="897" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.5070422">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
           <folding>
-            <element signature="e#6204#6205#0" expanded="true" />
-            <element signature="e#6258#6259#0" expanded="true" />
-            <element signature="e#6466#6467#0" expanded="true" />
-            <element signature="e#6518#6519#0" expanded="true" />
-            <element signature="e#8535#8536#0" expanded="true" />
-            <element signature="e#8594#8595#0" expanded="true" />
-            <element signature="e#10431#10432#0" expanded="true" />
-            <element signature="e#10480#10481#0" expanded="true" />
-            <element signature="e#17896#17897#0" expanded="true" />
-            <element signature="e#17942#17943#0" expanded="true" />
-            <element signature="e#19289#19290#0" expanded="true" />
-            <element signature="e#19335#19336#0" expanded="true" />
+            <element signature="e#6196#6197#0" expanded="true" />
+            <element signature="e#6250#6251#0" expanded="true" />
+            <element signature="e#6458#6459#0" expanded="true" />
+            <element signature="e#6510#6511#0" expanded="true" />
+            <element signature="e#8527#8528#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#10423#10424#0" expanded="true" />
+            <element signature="e#10472#10473#0" expanded="true" />
+            <element signature="e#17888#17889#0" expanded="true" />
+            <element signature="e#17934#17935#0" expanded="true" />
+            <element signature="e#19281#19282#0" expanded="true" />
+            <element signature="e#19327#19328#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -156,4 +156,23 @@ public class ConnectedComponents extends BaseMethods {
 
         return componentPoints;
     }
+
+    static int getNumForegroundComponents(int [] cc, int [][] image) {//BufferedImage image) {
+        int numComponents = 0;
+        int width = image[0].length; //image.getWidth();
+        boolean [] visited = new boolean[cc.length];
+
+        for (int i = 0; i < cc.length; i++) {
+
+            if (!visited[cc[i]] && image[i / width][i % width] == 1) {//getPixelValue(image, i % width, i / width) == 1) {
+                visited[cc[i]] = true;
+                numComponents++;
+            }
+
+            else if (!visited[cc[i]])
+                visited[cc[i]] = true;
+
+        }
+        return numComponents;
+    }
 }

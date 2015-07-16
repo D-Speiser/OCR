@@ -1,4 +1,7 @@
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 /**
  * The "ConnectedComponents" class performs different connected components algorithms on
  * an image, or on an image array. This allows us to distinguish between "components" or "blobs"
@@ -88,5 +91,69 @@ public class ConnectedComponents extends BaseMethods {
             }
         }
         return cc;
+    }
+
+    static int getNumComponents(int [] cc) {
+        int numComponents = 0;
+        boolean [] visited = new boolean[cc.length];
+        for (int i = 0; i < cc.length; i++) {
+            if (!visited[cc[i]]) {
+                visited[cc[i]] = true;
+                numComponents++;
+            }
+        }
+        return numComponents;
+    }
+
+    static int [] renameComponents(int [] cc) {
+        int numComponents = getNumComponents(cc);
+
+        if (numComponents == 1)
+            return cc;
+
+        int [] currentLabels = new int[numComponents];
+        currentLabels[0] = cc[0];
+        int count = 1;
+        int falseCount = 0;
+
+        for (int i = 1; i < cc.length; i++) {
+            for (int j = 0; j < numComponents; j++) {
+                if (cc[i] != currentLabels[j])
+                    falseCount++;
+            }
+            if (falseCount == numComponents) {
+                if (count >= numComponents)
+                    break;
+                currentLabels[count] = i;
+                count++;
+            }
+
+            falseCount = 0;
+        }
+
+        for (int i = 1; i < cc.length; i++) {
+            for (int j = 0; j < numComponents; j++) {
+                if (cc[i] == currentLabels[j])
+                    cc[i] = j;
+            }
+        }
+        return cc;
+    }
+
+    static ArrayList<Point>[] getComponentPoints(int [] cc, int width, int numComponents) {
+        ArrayList<Point>[] componentPoints = new ArrayList[numComponents];
+        //System.out.println("(" + i / width + ", " + i % width +")");
+        int i = 0;
+        while (i < numComponents) {
+            componentPoints[i] = new ArrayList<Point>();
+            for (int j = 0; j < cc.length; j++) {
+                if (cc[j] == i) {
+                    componentPoints[i].add(new Point(j % width, j / width));
+                }
+            }
+            i++;
+        }
+
+        return componentPoints;
     }
 }

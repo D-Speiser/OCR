@@ -255,9 +255,10 @@ public class BaseMethods {
         return array;
     }//reverse
 
+    //take in filepath not including extension
     public static void saveToFile(BufferedImage image, String filepath) {
         try {
-            ImageIO.write(image, "JPG", new File(filepath));
+            ImageIO.write(image, "JPG", new File(filepath + ".jpg"));
         } catch(Exception e) {
             System.err.println("Cannot save image to: " + filepath + ". Make sure the image file is valid.");
             e.printStackTrace();

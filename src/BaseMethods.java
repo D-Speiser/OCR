@@ -1,5 +1,7 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Vector;
 
 /**
@@ -252,5 +254,14 @@ public class BaseMethods {
         }
         return array;
     }//reverse
+
+    public static void saveToFile(BufferedImage image, String filepath) {
+        try {
+            ImageIO.write(image, "JPG", new File(filepath));
+        } catch(Exception e) {
+            System.err.println("Cannot save image to: " + filepath + ". Make sure the image file is valid.");
+            e.printStackTrace();
+        }
+    }//saveToFile
 }//BaseMethods
 

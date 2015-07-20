@@ -106,4 +106,13 @@ public class Measurements {
         else
             return -1;
     }
+
+    public static int distance(Point A, Point B, Point C) {
+        int ABx = B.x - A.x;
+        int ABy = B.y - A.y;
+        int num = ABx * (A.y - C.y) - ABy * (A.x - C.x);
+        if (num < 0)
+            num = -num;
+        return num;
+    }
 }

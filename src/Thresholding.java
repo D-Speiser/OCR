@@ -88,7 +88,7 @@ public class Thresholding extends BaseMethods {
      * @param image - image of pixels
      * @return double - sum of the array
      */
-     public double sum (BufferedImage image) {
+    public double sum (BufferedImage image) {
         double sum = 0.0; //initial sum
         int width = image.getWidth();
         int height = image.getHeight();
@@ -854,39 +854,35 @@ public class Thresholding extends BaseMethods {
     }//argMax
 
 
-    public BufferedImage votingSystem(BufferedImage image1, BufferedImage image2, BufferedImage image3, BufferedImage image4, BufferedImage image5) {
-        int width1 = image1.getWidth();
-        int height1 = image1.getHeight();
-        int width2 = image2.getWidth();
-        int height2 = image2.getHeight();
-        int width3 = image3.getWidth();
-        int height3 = image3.getHeight();
-        int width4 = image4.getWidth();
-        int height4 = image4.getHeight();
-        int width5 = image5.getWidth();
-        int height5 = image5.getHeight();
 
-        if (width1 != width2 || width2 != width3 || width3 != width4 || width4 != width5 || height1 != height2 || height2 != height3 || height3 != height4 || height4 != height5) {
-            System.out.println("Inconsistent Image Inputs!!!");
-            return null;
+    public BufferedImage votingSystem(BufferedImage [] images) {
+        int numImages = images.length;
+        //verify same image dimensions, otherwise this method will fail
+        for (int i = 0; i < numImages; i++) {
+            for (int j = 0; j < numImages; j++) {
+                if (i != j) {
+                    if (images[i].getWidth() != images[j].getWidth() || images[i].getHeight() != images[j].getHeight()) {
+                        System.out.println("Inconsistent Image Inputs!!!");
+                        return null;
+                    }
+                }
+            }
         }
-        BufferedImage result = new BufferedImage(image1.getWidth(), image1.getHeight(), BufferedImage.TYPE_BYTE_BINARY);
+        int imageHeight = images[0].getHeight();
+        int imageWidth = images[0].getWidth();
+
+        BufferedImage result = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_BYTE_BINARY);
+
         int numVotes = 0;
 
-        for (int i = 0; i < width1; i++) {
-            for (int j = 0; j < height1; j++) {
-                if (getPixelValue(image1, i, j) == 0)
-                    numVotes++;
-                if (getPixelValue(image2, i, j) == 0)
-                    numVotes++;
-                if (getPixelValue(image3, i, j) == 0)
-                    numVotes++;
-                if (getPixelValue(image4, i, j) == 0)
-                    numVotes++;
-                if (getPixelValue(image5, i, j) == 0)
-                    numVotes++;
+        for (int i = 0; i < imageWidth; i++) {
+            for (int j = 0; j < imageHeight; j++) {
+                for (int k = 0; k < numImages; k++) {
+                    if (getPixelValue(images[k], i, j) == 0)
+                        numVotes++;
+                }
 
-                if (numVotes > 2)
+                if (numVotes > numImages / 2)
                     //set to black, alternatively could use 0
                     result.setRGB(i, j, 0xFF000000);
                 else

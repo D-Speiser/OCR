@@ -19,14 +19,16 @@ public class Main {
     private static File[] getFiles(File fileDirectory) {
         File[] files = fileDirectory.listFiles(new FileFilter() {
             @Override
+            // hard coded file reader for Mac. TODO: implement file filter for all platforms
             public boolean accept(File file) {
-                return !file.isHidden() && !file.getName().equals(".DS_Store");
+                return !file.isHidden() && !file.getName().contains("DS_Store");
             }
         });
         return files;
     }
 
     public static void performOCR(File file) {
+        GUI gui = new GUI();
         GrayscaleConverter gc = new GrayscaleConverter();
         Thresholding th = new Thresholding();
 
@@ -44,7 +46,7 @@ public class Main {
             int mean = (int) th.average(grayscale);
             int otsu = th.otsuThreshold(grayscale);
             int median = (int) th.median(grayscale);
-            System.out.println("Threshold values for image: " + i + "\nMean: " + mean + "\nMedian: " + median + "\nMax Entropy: " + maxEntropy + "\nOtsu: " + otsu + "\nFixed: " + 127);
+            System.out.println("Threshold values for " + file.getName() + ":\nMean: " + mean + "\nMedian: " + median + "\nMax Entropy: " + maxEntropy + "\nOtsu: " + otsu + "\nFixed: " + 127);
             BufferedImage [] monochromeImages = new BufferedImage[5];
             monochromeImages[0] = th.grayToMono(grayscale, maxEntropy);
             monochromeImages[1] = th.grayToMono(grayscale, mean);
@@ -55,12 +57,11 @@ public class Main {
             BufferedImage votedMonochrome = th.votingSystem(monochromeImages);
 
 //            TODO: Add to GUI, perform measurements, get training sets, and get/analyze results.
-//            GUI gui = new GUI();
-//            gui.frame.setTitle("Sample Color to Grayscale");
-//            //add panels and images to GUI
-//            gui.addImages(image, gray, "Built-In");
-//            gui.addImages(image, gray1, "Average");
-//            gui.addImages(image, gray2, "Luminosity");
+            gui.frame.setTitle("");
+            //add panels and images to GUI
+            gui.addImages(image, "Original");
+            gui.addImages(grayscale, "Grayscale");
+            gui.addImages(votedMonochrome, "Monochrome");
 
 
         } catch(Exception e) {
@@ -77,7 +78,7 @@ public class Main {
         File dataDirectory = new File(dataPath);
 
         File[] trainingFiles = getFiles(trainingDirectory);
-        File[] dataFiles = getFiles(trainingDirectory);
+        File[] dataFiles = getFiles(dataDirectory);
 
         //buildTrainingSet(trainingFiles);
 

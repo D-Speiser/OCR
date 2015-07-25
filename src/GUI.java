@@ -19,12 +19,11 @@ public class GUI extends JFrame {
      * This method takes two images - the original, and the changed image - and
      * adds them to the JTabbedPane and JFrame for easy viewing.
      *
-     * @param image1: Orignal image to be added.
-     * @param image2: Second image to be added.
-     * @param methodName: Algorithm method name used. This will be appended to the tab.
+     * @param image: Orignal image to be added.
+     * @param tabName: Algorithm method name used. This will be appended to the tab.
      *
      */
-    public void addImages(BufferedImage image1, BufferedImage image2, String methodName) {
+    public void addImages(BufferedImage image, String tabName) {
         JPanel panel = new JPanel(); //new pannel to be added to tabbedpane
         //set frame placement, layout and default operations.
         frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -32,13 +31,12 @@ public class GUI extends JFrame {
         frame.setLocationRelativeTo(null);
         frame.setResizable(true);
         //add new images to JPanel
-        panel.add(new JLabel(new ImageIcon(image1)));
-        panel.add(new JLabel(new ImageIcon(image2)));
+        panel.add(new JLabel(new ImageIcon(image.getScaledInstance(800, 400, 0))));
         //add panel to a new tab with the given method name
-        pane.add(panel, methodName);
+        pane.add(panel, tabName);
         //finalize initialization: Add new tabs to frame, pack it, and set visible
         frame.add(pane);
-        frame.pack();
+        frame.setSize(800, 475);
         frame.setVisible(true);
     }//addImages
 }//GUI

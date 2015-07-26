@@ -15,6 +15,7 @@ public class Main {
 
     private static final String trainingPath = "./training";
     private static final String dataPath = "./data";
+    private static GUI gui = new GUI();
 
     private static File[] getFiles(File fileDirectory) {
         File[] files = fileDirectory.listFiles(new FileFilter() {
@@ -28,7 +29,6 @@ public class Main {
     }
 
     public static void performOCR(File file) {
-        GUI gui = new GUI();
         GrayscaleConverter gc = new GrayscaleConverter();
         Thresholding th = new Thresholding();
 
@@ -56,20 +56,14 @@ public class Main {
 
             BufferedImage votedMonochrome = th.votingSystem(monochromeImages);
 
-//            TODO: Add to GUI, perform measurements, get training sets, and get/analyze results.
-            gui.frame.setTitle("");
-            //add panels and images to GUI
-            gui.addImages(image, "Original");
-            gui.addImages(grayscale, "Grayscale");
-            gui.addImages(votedMonochrome, "Monochrome");
-
+//          TODO: perform measurements, get training sets, and get/analyze results.
+            gui.addImages(image, grayscale, votedMonochrome, file.getName()); //add images to GUI
 
         } catch(Exception e) {
             e.printStackTrace();
         }
 
     }
-
     /**
      * "main" class runs any and all methods to initialize and complete our software's calculations.
      */

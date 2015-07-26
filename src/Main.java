@@ -31,6 +31,7 @@ public class Main {
     public static void performOCR(File file) {
         GrayscaleConverter gc = new GrayscaleConverter();
         Thresholding th = new Thresholding();
+        ConnectedComponents cc = new ConnectedComponents();
 
         try {
             BufferedImage image = ImageIO.read(file);
@@ -56,8 +57,16 @@ public class Main {
 
             BufferedImage votedMonochrome = th.votingSystem(monochromeImages);
 
-//          TODO: perform measurements, get training sets, and get/analyze results.
             gui.addImages(image, grayscale, votedMonochrome, file.getName()); //add images to GUI
+
+//          TODO: perform measurements, get training sets, and get/analyze results.
+
+            int [] connComps = cc.getConnectedComponents(votedMonochrome);
+
+            connComps = cc.renameComponents(connComps);
+
+            //TODO: Come up with better data structure for points (Unknown number of points with unknown number of components..?)
+//            Vector<Vector<Point>> foregroundComponents = ConnectedComponents.getForegroundComponentPoints(cc, imageArray);
 
         } catch(Exception e) {
             e.printStackTrace();
